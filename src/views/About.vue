@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import headshot1 from '../assets/headshots/headshot1.jpeg'
 
-const showFullResume = ref(false)
 
 const downloadResume = () => {
   const link = document.createElement('a')
