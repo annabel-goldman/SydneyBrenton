@@ -40,80 +40,59 @@ onMounted(() => {
           <div class="hero-content">
             <h1>Sydney Brenton</h1>
             <h2>Theater & Visual Artist</h2>
-            <p>Passionate about storytelling through performance and visual arts</p>
+            <p>Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister and dog (mostly her dog) and to get a New Jersey bagel. Sydney recently graduate Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate. She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music for them, and sung with a band as well. </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Headshot Carousel Section -->
-    <section class="headshot-section section">
-      <div class="container">
-        <h2 class="text-center">Portfolio Highlights</h2>
-        <div class="carousel-container">
-          <button class="carousel-btn prev" @click="prevHeadshot">
-            <span>&lt;</span>
-          </button>
-          
-          <div class="carousel">
-            <div class="carousel-track" :style="{ transform: `translateX(-${currentHeadshotIndex * 100}%)` }">
-              <div 
-                v-for="(headshot, index) in headshots" 
-                :key="index"
-                class="carousel-slide"
-              >
-                <img :src="headshot" :alt="`Sydney Brenton Headshot ${index + 1}`" />
+          <div class="hero-carousel">
+            <div class="carousel-container">
+              <div class="carousel">
+                <div class="carousel-track" :style="{ transform: `translateX(-${currentHeadshotIndex * 100}%)` }">
+                  <div 
+                    v-for="(headshot, index) in headshots" 
+                    :key="index"
+                    class="carousel-slide"
+                  >
+                    <img :src="headshot" :alt="`Sydney Brenton Headshot ${index + 1}`" />
+                  </div>
+                </div>
+                <button class="carousel-btn prev" @click="prevHeadshot">
+                  <span>&lt;</span>
+                </button>
+                <button class="carousel-btn next" @click="nextHeadshot">
+                  <span>&gt;</span>
+                </button>
               </div>
             </div>
           </div>
-          
-          <button class="carousel-btn next" @click="nextHeadshot">
-            <span>&gt;</span>
-          </button>
-        </div>
-        
-        <div class="carousel-indicators">
-          <button 
-            v-for="(_headshot, index) in headshots" 
-            :key="index"
-            :class="['indicator', { active: currentHeadshotIndex === index }]"
-            @click="currentHeadshotIndex = index"
-          ></button>
         </div>
       </div>
     </section>
 
-    <!-- Introduction Section -->
-    <section class="intro-section section">
+    <!-- Footer -->
+    <footer class="footer">
       <div class="container">
-        <div class="intro-content">
-          <h2 class="text-center">Welcome to My Portfolio</h2>
-          <p>
-            I am a dedicated theater and visual artist with a passion for storytelling through performance and creative expression. 
-            My work spans across acting, stage production, and visual arts, creating immersive experiences that connect with audiences on a deep level.
-          </p>
-          <p>
-            Explore my portfolio to see my latest projects, performances, and artistic endeavors. 
-            From intimate character studies to large-scale productions, each piece represents my commitment to artistic excellence and authentic storytelling.
-          </p>
+        <div class="footer-content">
+          <p>&copy; 2024 Sydney Brenton</p>
         </div>
       </div>
-    </section>
+    </footer>
   </div>
 </template>
 
 <style scoped>
 .home {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Hero Section - using design system classes */
 .hero {
-  height: 100vh;
+  height: 90vh;
   position: relative;
   overflow: hidden;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  flex-shrink: 0;
 }
 
 .hero-image {
@@ -137,15 +116,17 @@ onMounted(() => {
   bottom: 0;
   background: rgba(20, 49, 9, 0.7);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 4rem 4rem 4rem;
 }
 
 .hero-content {
-  text-align: center;
+  text-align: left;
   color: var(--color-text-white);
-  max-width: 800px;
+  max-width: 500px;
   padding: var(--spacing-xl);
+  padding-left: 2rem;
 }
 
 .hero-content h1 {
@@ -162,63 +143,66 @@ onMounted(() => {
 }
 
 .hero-content p {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-md);
   line-height: var(--line-height-relaxed);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Headshot Carousel Section */
-.headshot-section {
-  padding: 5rem 0;
-  background: var(--color-background-primary);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.headshot-section h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-  color: var(--color-text-primary);
+.hero-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 90vh;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
 }
 
 .carousel-container {
   position: relative;
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 100%;
 }
 
 .carousel {
   flex: 1;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   box-shadow: var(--shadow-lg);
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+  height: 100%;
 }
 
 .carousel-slide {
   min-width: 100%;
-  height: 400px;
+  height: 90vh;
 }
 
 .carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .carousel-btn {
-  background: rgba(74, 144, 226, 0.9);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
   color: var(--color-text-white);
   border: none;
   width: 50px;
@@ -229,56 +213,44 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--transition-normal);
+  transition: all var(--transition-normal);
+  opacity: 0;
+  z-index: 10;
+}
+
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+
+.carousel:hover .carousel-btn {
+  opacity: 1;
 }
 
 .carousel-btn:hover {
-  background: rgba(74, 144, 226, 1);
+  background: rgba(0, 0, 0, 0.8);
 }
 
-.carousel-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
+/* Footer */
+.footer {
+  padding: 2rem 0;
+  background: #0f2a0a;
+  margin-top: auto;
 }
 
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  background: var(--color-text-light);
-  cursor: pointer;
-  transition: background-color var(--transition-normal);
-}
-
-.indicator.active {
-  background: var(--color-primary);
-}
-
-/* Introduction Section */
-.intro-section {
-  padding: 5rem 0;
-  background: var(--color-background-secondary);
-}
-
-.intro-content {
-  max-width: 800px;
+.footer-content {
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
-.intro-content h2 {
-  color: var(--color-text-primary);
-  margin-bottom: 2rem;
-}
-
-.intro-content p {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
-  margin-bottom: 1.5rem;
+.footer-content p {
+  color: var(--color-text-white);
+  font-size: var(--font-size-md);
+  margin: 0;
 }
 
 /* Responsive Design */
