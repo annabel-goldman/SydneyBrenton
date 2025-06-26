@@ -23,15 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-# Large assets that should be handled separately
-src/assets/**/*.jpeg
-src/assets/**/*.jpg
-src/assets/**/*.png
-src/assets/**/*.gif
+# Ignore large/binary assets except for images
 src/assets/**/*.mov
 src/assets/**/*.mp4
 src/assets/**/*.avi
 src/assets/**/*.pdf
+src/assets/**/*.gif
 
 # Keep only optimized assets
 !src/assets/**/*.webp

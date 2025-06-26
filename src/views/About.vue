@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import heroImage from '../assets/1709490557592.jpeg'
 import headshot1 from '../assets/headshots/headshot1.jpeg'
 
 const showFullResume = ref(false)
@@ -20,7 +19,7 @@ const downloadResume = () => {
     <!-- Hero Section -->
     <section class="about-hero hero hero-sm">
       <div class="hero-image">
-        <img :src="heroImage" alt="Sydney Brenton About" />
+        <!-- Removed: <img :src="heroImage" alt="Sydney Brenton About" /> -->
         <div class="hero-overlay">
           <div class="hero-content">
             <h1>About Sydney</h1>

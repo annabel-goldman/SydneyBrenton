@@ -4,7 +4,6 @@ import headshot1 from '../assets/headshots/headshot1.jpeg'
 import headshot2 from '../assets/headshots/headshot2.jpeg'
 import headshot3 from '../assets/headshots/headshot3.jpeg'
 import headshot4 from '../assets/headshots/headshot4.jpeg'
-import heroImage from '../assets/1709490557592.jpeg'
 
 const currentHeadshotIndex = ref(0)
 
@@ -36,7 +35,7 @@ onMounted(() => {
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-image">
-        <img :src="heroImage" alt="Sydney Brenton Hero" />
+        <!-- Removed: <img :src="heroImage" alt="Sydney Brenton Hero" /> -->
         <div class="hero-overlay">
           <div class="hero-content">
             <h1>Sydney Brenton</h1>

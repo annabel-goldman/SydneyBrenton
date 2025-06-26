@@ -7,7 +7,6 @@ import edit039 from '../assets/liveMedia/EDIT053024_Once-039_Original.jpeg'
 import edit044 from '../assets/liveMedia/EDIT053024_Once-044_Original.jpeg'
 import edit062 from '../assets/liveMedia/EDIT053024_Once-062_Original.jpeg'
 import edit070 from '../assets/liveMedia/EDIT053024_Once-070_Original.jpeg'
-import img0934 from '../assets/liveMedia/IMG_0934.jpeg'
 
 const selectedMedia = ref<string | null>(null)
 const mediaType = ref<'image' | 'video'>('image')
@@ -54,16 +53,6 @@ const liveMediaItems: MediaItem[] = [
     type: 'image',
     title: 'Live Performance 7'
   },
-  {
-    src: img0934,
-    type: 'image',
-    title: 'Live Performance 8'
-  },
-  {
-    src: '/src/assets/liveMedia/IMG_3399.mov',
-    type: 'video',
-    title: 'Live Performance Video'
-  }
 ]
 
 const openLightbox = (item: MediaItem) => {
