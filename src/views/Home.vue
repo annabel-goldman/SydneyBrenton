@@ -124,9 +124,8 @@ onMounted(() => {
 .hero-content {
   text-align: left;
   color: var(--color-text-white);
-  max-width: 500px;
-  padding: var(--spacing-xl);
-  padding-left: 2rem;
+  max-width: 670px;
+  padding: 1.5rem 0rem;
 }
 
 .hero-content h1 {
@@ -255,30 +254,66 @@ onMounted(() => {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hero {
+    min-height: unset;
+    height: auto;
+  }
+  .hero-overlay {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  .hero-content {
+    max-width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .hero-carousel,
+  .carousel-container,
+  .carousel {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+  .carousel-track {
+    height: auto;
+  }
+  .carousel-slide {
+    height: auto;
+    min-height: 100px;
+  }
   .hero-content h1 {
     font-size: var(--font-size-4xl);
   }
-  
   .hero-content h2 {
     font-size: var(--font-size-2xl);
   }
-  
   .hero-content p {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
   }
-  
-  .carousel-slide {
-    height: 300px;
-  }
-  
   .carousel-btn {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
   }
-  
   .container {
     padding: 0 1rem;
+  }
+}
+
+@media (max-width: 1240px) {
+  .hero-content {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 955px) {
+  .hero-content {
+    max-width: 400px;
+    font-size: 15px;
+
   }
 }
 </style> 
