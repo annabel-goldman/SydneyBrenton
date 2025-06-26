@@ -5,23 +5,19 @@
 /* CSS Custom Properties (Design Tokens) */
 :root {
   /* Colors */
-  --color-primary: #D0D6B3;
-  --color-primary-dark: #b5bc9c;
-  --color-primary-light: #e6ead3;
-  
-  --color-secondary: #143109;
-  --color-secondary-light: #1a4a12;
-  
-  --color-text-primary: #F7F7F7;
-  --color-text-secondary: #E0E0E0;
-  --color-text-light: #B0B0B0;
-  --color-text-white: #F7F7F7;
-  
-  --color-background-primary: #143109;
-  --color-background-secondary: #1a4a12;
-  --color-background-dark: #143109;
-  
-  --color-border: rgba(208, 214, 179, 0.1);
+  --color-white: #FFFFFF;
+  --color-light-gray: #DFE1E2;
+  --color-background-primary: #505559;
+  --color-primary: #2A1F2D;
+  --color-primary-dark: #3B2C35;
+  --color-secondary: #3B2C35;
+  --color-header: #4E5456;
+  --color-footer: #4E5456;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #DFE1E2;
+  --color-text-light: #DFE1E2;
+  --color-text-white: #FFFFFF;
+  --color-border: #DFE1E2;
   --color-shadow: rgba(0, 0, 0, 0.1);
   
   /* Typography */
@@ -161,7 +157,8 @@ a:hover {
 }
 
 .section {
-  padding: var(--spacing-4xl) 0;
+  padding-top: var(--spacing-4xl);
+  padding-bottom: 0;
 }
 
 .section-sm {
@@ -309,7 +306,7 @@ a:hover {
    ======================================== */
 
 .card {
-  background: #1a4a12;
+  background: var(--color-background-primary);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   overflow: hidden;
@@ -333,7 +330,7 @@ a:hover {
 .card-footer {
   padding: var(--spacing-lg);
   border-top: 1px solid var(--color-border);
-  background-color: #143109;
+  background-color: var(--color-header-footer);
 }
 
 /* ========================================
@@ -456,4 +453,23 @@ a:hover {
   .section {
     padding: var(--spacing-2xl) 0;
   }
+}
+
+.footer {
+  padding: 2rem 0;
+  background: var(--color-footer);
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content p {
+  color: var(--color-text-white);
+  font-size: var(--font-size-md);
+  margin: 0;
 } 

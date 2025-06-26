@@ -25,7 +25,7 @@ const navigateTo = (page: string) => {
 
 const menuItems = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
+  { id: 'about', label: 'Resume' },
   { id: 'film-stills', label: 'Film Stills' },
   { id: 'live-media', label: 'Live Media' }
 ]

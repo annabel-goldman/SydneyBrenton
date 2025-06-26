@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import img2123 from '../assets/filmStills/IMG_2123.jpeg'
 import img2111 from '../assets/filmStills/IMG_2111.jpeg'
 import img2099 from '../assets/filmStills/IMG_2099.jpeg'
@@ -9,87 +9,119 @@ import img2084 from '../assets/filmStills/IMG_2084.jpeg'
 import img2079 from '../assets/filmStills/IMG_2079.jpeg'
 import screenshot from '../assets/filmStills/Screenshot 2023-12-06 at 13.36.03.jpeg'
 
-const selectedImage = ref<string | null>(null)
+interface FilmStill {
+  src: string
+  position?: string
+  title: string
+}
 
-const filmStills = [
-  img2123,
-  img2111,
-  img2099,
-  img2093,
-  img2091,
-  img2084,
-  img2079,
-  screenshot
+const filmStills: FilmStill[] = [
+  { src: img2123, position: 'center', title: 'Film Still 1' },
+  { src: img2111, position: 'top', title: 'Film Still 2' },
+  { src: img2099, position: 'center', title: 'Film Still 3' },
+  { src: img2093, position: 'bottom', title: 'Film Still 4' },
+  { src: img2091, position: 'center', title: 'Film Still 5' },
+  { src: img2084, position: 'top', title: 'Film Still 6' },
+  { src: img2079, position: 'center', title: 'Film Still 7' },
+  { src: screenshot, position: 'center', title: 'Film Still 8' }
 ]
 
-const openLightbox = (image: string) => {
-  selectedImage.value = image
-}
+const showTitle = ref(true)
 
-const closeLightbox = () => {
-  selectedImage.value = null
-}
+onMounted(() => {
+  // Hide the title after 3 seconds
+  setTimeout(() => {
+    showTitle.value = false
+  }, 3000)
+})
 </script>
 
 <template>
-  <div class="film-stills">
-    <!-- Hero Section -->
-    <section class="gallery-hero hero hero-sm">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1>Film Stills</h1>
-          <p>Capturing moments of performance and storytelling through the lens</p>
-        </div>
+  <div class="page">
+    <div class="film-stills">
+      <!-- Page Title -->
+      <div v-if="showTitle" class="page-title">
+        <h1>Film Stills</h1>
       </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section section">
-      <div class="gallery-grid">
-        <div 
-          v-for="(image, index) in filmStills" 
-          :key="index"
-          class="gallery-item"
-          @click="openLightbox(image)"
-        >
-          <img :src="image" :alt="`Film Still ${index + 1}`" />
-          <div class="gallery-overlay">
-            <span class="view-icon">👁</span>
+      
+      <!-- Gallery Section -->
+      <section class="gallery-section section">
+        <div class="gallery-grid">
+          <div 
+            v-for="(image, index) in filmStills" 
+            :key="index"
+            class="gallery-item"
+          >
+            <div class="media-container">
+              <img 
+                :src="image.src" 
+                :alt="`Film Still ${index + 1}`"
+                :class="`media-image ${image.position ? `pos-${image.position}` : ''}`"
+              />
+              <div class="title-overlay">
+                <h3>{{ image.title }}</h3>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div v-if="selectedImage" class="lightbox" @click="closeLightbox">
-      <div class="lightbox-content" @click.stop>
-        <button class="lightbox-close" @click="closeLightbox">&times;</button>
-        <img :src="selectedImage" alt="Film Still" />
-      </div>
+      </section>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2024 Sydney Brenton</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <style scoped>
-.film-stills {
+.page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.film-stills {
+  flex: 1;
 }
 
-/* Hero Section - using design system classes */
-.gallery-hero {
-  background: var(--color-background-primary);
+.film-stills, .gallery-section.section, .container {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+/* Page Title */
+.page-title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  text-align: center;
+  animation: fadeInOut 3s ease-in-out;
 }
 
-.hero-content p {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+.page-title h1 {
+  color: var(--color-text-white);
+  font-size: var(--font-size-6xl);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Gallery Section */
@@ -111,101 +143,86 @@ const closeLightbox = () => {
 .gallery-item {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform var(--transition-normal);
   width: 100%;
 }
 
-.gallery-item:hover {
-  transform: scale(1.02);
-}
-
-.gallery-item img {
+.media-container {
+  position: relative;
   width: 100%;
   height: 600px;
+}
+
+.media-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
 }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-
-.gallery-overlay {
+/* Title Overlay */
+.title-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.8);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
 
-.gallery-item:hover .gallery-overlay {
+.gallery-item:hover .title-overlay {
   opacity: 1;
 }
 
-.view-icon {
-  font-size: 2rem;
+.title-overlay h3 {
   color: var(--color-text-white);
+  font-size: var(--font-size-lg);
+  text-align: center;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Lightbox Modal */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+/* Custom positioning classes */
+.pos-top {
+  object-position: center top;
 }
 
-.lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+.pos-center {
+  object-position: center center;
 }
 
-.lightbox-content img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: var(--radius-md);
+.pos-bottom {
+  object-position: center bottom;
 }
 
-.lightbox-close {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  background: none;
-  border: none;
-  color: var(--color-text-white);
-  font-size: 3rem;
-  cursor: pointer;
-  transition: color var(--transition-normal);
+.pos-left {
+  object-position: left center;
 }
 
-.lightbox-close:hover {
-  color: var(--color-primary);
+.pos-right {
+  object-position: right center;
+}
+
+.pos-top-left {
+  object-position: left top;
+}
+
+.pos-top-right {
+  object-position: right top;
+}
+
+.pos-bottom-left {
+  object-position: left bottom;
+}
+
+.pos-bottom-right {
+  object-position: right bottom;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.1rem;
+  .page-title h1 {
+    font-size: var(--font-size-4xl);
   }
   
   .gallery-grid {
@@ -213,21 +230,16 @@ const closeLightbox = () => {
     padding: 0 1rem;
   }
   
-  .gallery-item img {
+  .media-container {
     height: 400px;
+  }
+  
+  .title-overlay h3 {
+    font-size: var(--font-size-xl);
   }
   
   .container {
     padding: 0 1rem;
-  }
-  
-  .lightbox {
-    padding: 1rem;
-  }
-  
-  .lightbox-close {
-    top: -40px;
-    font-size: 2.5rem;
   }
 }
 </style> 

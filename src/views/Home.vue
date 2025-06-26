@@ -40,7 +40,8 @@ onMounted(() => {
           <div class="hero-content">
             <h1>Sydney Brenton</h1>
             <h2>Theater & Visual Artist</h2>
-            <p>Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister and dog (mostly her dog) and to get a New Jersey bagel. Sydney recently graduate Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate. She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music for them, and sung with a band as well. </p>
+            <p>Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister and dog (mostly her dog) and to get a New Jersey bagel. Sydney recently graduate Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate. </p>
+            <p>She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music for them, and sung with a band as well. </p>
           </div>
           <div class="hero-carousel">
             <div class="carousel-container">
@@ -83,6 +84,7 @@ onMounted(() => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: var(--color-text-white);
 }
 
 /* Hero Section - using design system classes */
@@ -114,7 +116,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(20, 49, 9, 0.7);
+  background: var(--color-background-primary);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -123,9 +125,12 @@ onMounted(() => {
 
 .hero-content {
   text-align: left;
-  color: var(--color-text-white);
   max-width: 670px;
-  padding: 1.5rem 0rem;
+  padding: 4rem 0rem 1.5rem 0rem;
+}
+
+.hero-content h1, .hero-content h2, .hero-content p {
+  color: var(--color-text-white) !important;
 }
 
 .hero-content h1 {
@@ -201,7 +206,7 @@ onMounted(() => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-primary);
   color: var(--color-text-white);
   border: none;
   width: 50px;
@@ -230,13 +235,13 @@ onMounted(() => {
 }
 
 .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--color-primary-dark);
 }
 
 /* Footer */
 .footer {
   padding: 2rem 0;
-  background: #0f2a0a;
+  background: var(--color-footer);
   margin-top: auto;
 }
 

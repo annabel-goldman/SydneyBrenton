@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import img1G8A0510 from '../assets/liveMedia/1G8A0510.jpeg'
 import edit081 from '../assets/liveMedia/EDIT053024_Once-081_Original.jpeg'
 import edit092 from '../assets/liveMedia/EDIT053024_Once-092_Original.jpeg'
@@ -8,141 +8,165 @@ import edit044 from '../assets/liveMedia/EDIT053024_Once-044_Original.jpeg'
 import edit062 from '../assets/liveMedia/EDIT053024_Once-062_Original.jpeg'
 import edit070 from '../assets/liveMedia/EDIT053024_Once-070_Original.jpeg'
 
-const selectedMedia = ref<string | null>(null)
-const mediaType = ref<'image' | 'video'>('image')
-
 interface MediaItem {
   src: string
   type: 'image' | 'video'
   title: string
+  position?: string
 }
 
 const liveMediaItems: MediaItem[] = [
   {
     src: img1G8A0510,
     type: 'image',
-    title: 'Live Performance 1'
+    title: 'Live Performance 1',
+    position: 'center'
   },
   {
     src: edit081,
     type: 'image',
-    title: 'Live Performance 2'
+    title: 'Live Performance 2',
+    position: 'top'
   },
   {
     src: edit092,
     type: 'image',
-    title: 'Live Performance 3'
+    title: 'Live Performance 3',
+    position: 'center'
   },
   {
     src: edit039,
     type: 'image',
-    title: 'Live Performance 4'
+    title: 'Live Performance 4',
+    position: 'top'
   },
   {
     src: edit044,
     type: 'image',
-    title: 'Live Performance 5'
+    title: 'Live Performance 5',
+    position: 'center'
   },
   {
     src: edit062,
     type: 'image',
-    title: 'Live Performance 6'
+    title: 'Live Performance 6',
+    position: 'top'
   },
   {
     src: edit070,
     type: 'image',
-    title: 'Live Performance 7'
+    title: 'Live Performance 7',
+    position: 'center'
   },
 ]
 
-const openLightbox = (item: MediaItem) => {
-  selectedMedia.value = item.src
-  mediaType.value = item.type
-}
+const showTitle = ref(true)
 
-const closeLightbox = () => {
-  selectedMedia.value = null
-}
+onMounted(() => {
+  // Hide the title after 3 seconds
+  setTimeout(() => {
+    showTitle.value = false
+  }, 3000)
+})
 </script>
 
 <template>
-  <div class="live-media">
-    <!-- Hero Section -->
-    <section class="gallery-hero hero hero-sm">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1>Live Media</h1>
-          <p>Capturing the energy and emotion of live performances</p>
-        </div>
+  <div class="page">
+    <div class="live-media">
+      <!-- Page Title -->
+      <div v-if="showTitle" class="page-title">
+        <h1>Live Media</h1>
       </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery-section section">
-      <div class="gallery-grid">
-        <div 
-          v-for="(item, index) in liveMediaItems" 
-          :key="index"
-          class="gallery-item"
-          @click="openLightbox(item)"
-        >
-          <div class="media-container">
-            <img 
-              v-if="item.type === 'image'" 
-              :src="item.src" 
-              :alt="item.title" 
-            />
-            <video 
-              v-else 
-              :src="item.src" 
-              :alt="item.title"
-              muted
-              preload="metadata"
-            />
-            <div class="media-overlay">
-              <span v-if="item.type === 'image'" class="view-icon">👁</span>
-              <span v-else class="play-icon">▶</span>
-              <p class="media-title">{{ item.title }}</p>
+      
+      <!-- Gallery Section -->
+      <section class="gallery-section section">
+        <div class="gallery-grid">
+          <div 
+            v-for="(item, index) in liveMediaItems" 
+            :key="index"
+            class="gallery-item"
+          >
+            <div class="media-container">
+              <img 
+                v-if="item.type === 'image'" 
+                :src="item.src" 
+                :alt="item.title"
+                :class="`media-image ${item.position ? `pos-${item.position}` : ''}`"
+              />
+              <video 
+                v-else 
+                :src="item.src" 
+                :alt="item.title"
+                muted
+                preload="metadata"
+                :class="`media-video ${item.position ? `pos-${item.position}` : ''}`"
+              />
+              <div class="title-overlay">
+                <h3>{{ item.title }}</h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div v-if="selectedMedia" class="lightbox" @click="closeLightbox">
-      <div class="lightbox-content" @click.stop>
-        <button class="lightbox-close" @click="closeLightbox">&times;</button>
-        <div class="lightbox-media">
-          <img 
-            v-if="mediaType === 'image'" 
-            :src="selectedMedia" 
-            alt="Live Media" 
-          />
-          <video 
-            v-else 
-            :src="selectedMedia" 
-            controls
-            autoplay
-            alt="Live Media Video"
-          />
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2024 Sydney Brenton</p>
         </div>
       </div>
-    </div>
+    </footer>
   </div>
 </template>
 
 <style scoped>
-.live-media {
+.page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.live-media {
+  flex: 1;
 }
 
-/* Hero Section - using design system classes */
-.gallery-hero {
-  background: var(--color-background-primary);
+.live-media, .gallery-section.section, .container {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
-/* Gallery Section */
+/* Page Title */
+.page-title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  text-align: center;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+.page-title h1 {
+  color: var(--color-text-white);
+  font-size: var(--font-size-6xl);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .gallery-section {
   background: var(--color-background-primary);
   width: 100vw;
@@ -161,13 +185,7 @@ const closeLightbox = () => {
 .gallery-item {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform var(--transition-normal);
   width: 100%;
-}
-
-.gallery-item:hover {
-  transform: scale(1.02);
 }
 
 .media-container {
@@ -176,109 +194,79 @@ const closeLightbox = () => {
   height: 600px;
 }
 
-.media-container img,
-.media-container video {
+.media-image,
+.media-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
 }
 
-.gallery-item:hover .media-container img,
-.gallery-item:hover .media-container video {
-  transform: scale(1.05);
-}
-
-.media-overlay {
+/* Title Overlay */
+.title-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  background: rgba(0, 0, 0, 0.8);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
 
-.gallery-item:hover .media-overlay {
+.gallery-item:hover .title-overlay {
   opacity: 1;
 }
 
-.view-icon,
-.play-icon {
-  font-size: 2.5rem;
-  color: var(--color-text-white);
-  margin-bottom: 1rem;
-}
-
-.play-icon {
-  font-size: 3rem;
-}
-
-.media-title {
+.title-overlay h3 {
   color: var(--color-text-white);
   font-size: var(--font-size-lg);
   text-align: center;
   margin: 0;
-  padding: 0 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Lightbox Modal */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+/* Custom positioning classes */
+.pos-top {
+  object-position: center top;
 }
 
-.lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+.pos-center {
+  object-position: center center;
 }
 
-.lightbox-media {
-  width: 100%;
-  height: 100%;
+.pos-bottom {
+  object-position: center bottom;
 }
 
-.lightbox-media img,
-.lightbox-media video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: var(--radius-md);
+.pos-left {
+  object-position: left center;
 }
 
-.lightbox-close {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  background: none;
-  border: none;
-  color: var(--color-text-white);
-  font-size: 3rem;
-  cursor: pointer;
-  transition: color var(--transition-normal);
+.pos-right {
+  object-position: right center;
 }
 
-.lightbox-close:hover {
-  color: var(--color-primary);
+.pos-top-left {
+  object-position: left top;
 }
 
-/* Responsive Design */
+.pos-top-right {
+  object-position: right top;
+}
+
+.pos-bottom-left {
+  object-position: left bottom;
+}
+
+.pos-bottom-right {
+  object-position: right bottom;
+}
+
 @media (max-width: 768px) {
+  .page-title h1 {
+    font-size: var(--font-size-4xl);
+  }
+  
   .gallery-grid {
     gap: 1rem;
     padding: 0 1rem;
@@ -288,22 +276,8 @@ const closeLightbox = () => {
     height: 400px;
   }
   
-  .lightbox {
-    padding: 1rem;
-  }
-  
-  .lightbox-close {
-    top: -40px;
-    font-size: 2.5rem;
-  }
-  
-  .view-icon,
-  .play-icon {
-    font-size: 2rem;
-  }
-  
-  .play-icon {
-    font-size: 2.5rem;
+  .title-overlay h3 {
+    font-size: var(--font-size-xl);
   }
 }
 </style> 
