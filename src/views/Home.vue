@@ -282,12 +282,16 @@ onMounted(() => {
     height: auto;
     margin-top: 1.5rem;
   }
+  .carousel {
+    position: relative;
+    min-height: 300px;
+  }
   .carousel-track {
     height: auto;
   }
   .carousel-slide {
     height: auto;
-    min-height: 100px;
+    min-height: 300px;
   }
   .hero-content h1 {
     font-size: var(--font-size-4xl);
@@ -302,6 +306,8 @@ onMounted(() => {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .container {
     padding: 0 1rem;

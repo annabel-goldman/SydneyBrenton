@@ -69,7 +69,7 @@ onMounted(() => {
       <section class="gallery-section section">
         <div class="video-grid">
           <div 
-            v-for="(video, index) in videos" 
+            v-for="video in videos" 
             :key="video.id"
             class="video-item"
             :class="{ disabled: isDisabled }"
