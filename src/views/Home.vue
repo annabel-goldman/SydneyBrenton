@@ -39,7 +39,7 @@ onMounted(() => {
         <div class="hero-overlay">
           <div class="hero-content">
             <h1>Sydney Brenton</h1>
-            <h2>Theater & Visual Artist</h2>
+            <h2>Actor, Singer, Musician</h2>
             <p>Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister and dog (mostly her dog) and to get a New Jersey bagel. Sydney recently graduate Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate. </p>
             <p>She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music for them, and sung with a band as well. </p>
           </div>
