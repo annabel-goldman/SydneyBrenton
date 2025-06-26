@@ -100,6 +100,7 @@ const downloadResume = () => {
   transition: opacity 0.3s;
   z-index: 2;
   font-family: var(--font-family-primary) !important;
+  border-radius: 0 !important;
 }
 
 .resume-image-wrapper:hover .resume-download-btn {

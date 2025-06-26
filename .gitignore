@@ -27,7 +27,6 @@ dist-ssr
 src/assets/**/*.mov
 src/assets/**/*.mp4
 src/assets/**/*.avi
-src/assets/**/*.pdf
 src/assets/**/*.gif
 
 # Keep only optimized assets
