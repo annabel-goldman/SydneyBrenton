@@ -1,0 +1,58 @@
+/* ========================================
+   MAIN STYLES INDEX
+   ======================================== */
+
+/* Import Design System */
+@import './design-system.css';
+
+/* Import Component Styles */
+@import './components/navigation.css';
+
+/* ========================================
+   GLOBAL OVERRIDES & ADDITIONS
+   ======================================== */
+
+/* Ensure proper spacing for fixed navigation */
+body {
+  padding-top: var(--nav-height);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: var(--nav-height-mobile);
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Print styles */
+@media print {
+  .navigation,
+  .hamburger,
+  .mobile-menu {
+    display: none !important;
+  }
+  
+  body {
+    padding-top: 0;
+  }
+  
+  .hero {
+    height: auto;
+    min-height: 300px;
+  }
+} 
