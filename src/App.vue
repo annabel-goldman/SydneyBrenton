@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import Navigation from './components/Navigation.vue'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
@@ -9,9 +9,22 @@ import YouTube from './views/YouTube.vue'
 
 const currentPage = ref('home')
 
+const pageTitles = {
+  'home': 'Sydney Brenton - Actor, Singer, Musician',
+  'about': 'Resume - Sydney Brenton',
+  'film-stills': 'Film Stills - Sydney Brenton',
+  'live-media': 'Live Media - Sydney Brenton',
+  'youtube': 'Video Content - Sydney Brenton'
+}
+
 const navigateTo = (page: string) => {
   currentPage.value = page
 }
+
+// Update document title when page changes
+watch(currentPage, (newPage) => {
+  document.title = pageTitles[newPage as keyof typeof pageTitles] || 'Sydney Brenton'
+})
 </script>
 
 <template>
