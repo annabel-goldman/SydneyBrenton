@@ -28,7 +28,7 @@ const menuItems = [
   { id: 'about', label: 'Resume' },
   { id: 'film-stills', label: 'Film Stills' },
   { id: 'live-media', label: 'Live Media' },
-  { id: 'youtube', label: 'YouTube' }
+  { id: 'youtube', label: 'Video Content' }
 ]
 </script>
 

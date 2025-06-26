@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import img9907 from '../assets/liveMedia/IMG_9907.jpeg'
+import img1414 from '../assets/liveMedia/IMG_1414.jpeg'
+import img1317 from '../assets/liveMedia/IMG_1317.jpeg'
+import img1061 from '../assets/liveMedia/IMG_1061.jpeg'
+import img0965 from '../assets/liveMedia/IMG_0965.jpeg'
 import img1G8A0510 from '../assets/liveMedia/1G8A0510.jpeg'
 import edit081 from '../assets/liveMedia/EDIT053024_Once-081_Original.jpeg'
 import edit092 from '../assets/liveMedia/EDIT053024_Once-092_Original.jpeg'
@@ -17,45 +22,75 @@ interface MediaItem {
 
 const liveMediaItems: MediaItem[] = [
   {
-    src: img1G8A0510,
+    src: edit062,
     type: 'image',
-    title: 'Live Performance 1',
+    title: 'Once',
     position: 'center'
   },
   {
-    src: edit081,
+    src: img1G8A0510,
     type: 'image',
-    title: 'Live Performance 2',
+    title: 'THUNK A Cappella',
+    position: 'center'
+  },
+  {
+    src:  edit044,
+    type: 'image',
+    title: 'Once',
     position: 'top'
   },
   {
-    src: edit092,
+    src: img1414,
     type: 'image',
-    title: 'Live Performance 3',
+    title: 'Inez, No Exit',
     position: 'center'
   },
   {
     src: edit039,
     type: 'image',
-    title: 'Live Performance 4',
+    title: 'Live Performance 5',
     position: 'top'
   },
   {
-    src: edit044,
+    src:  img1317,
     type: 'image',
-    title: 'Live Performance 5',
+    title: 'Live Performance 7',
     position: 'center'
   },
   {
-    src: edit062,
+    src: img0965,
     type: 'image',
-    title: 'Live Performance 6',
+    title: 'Inez, No Exit',
+    position: 'center'
+  },
+  {
+    src: edit081,
+    type: 'image',
+    title: 'Once',
     position: 'top'
+  },
+  {
+    src: img1061,
+    type: 'image',
+    title: 'Inez, No Exit',
+    position: 'center'
+  },
+  {
+    src:  edit092,
+    type: 'image',
+    title: 'Once',
+    position: 'center'
+  },
+  {
+    src: img9907,
+    type: 'image',
+    title: 'Lead Vocals, Walter',
+    position: 'center'
   },
   {
     src: edit070,
     type: 'image',
-    title: 'Live Performance 7',
+    title: 'Once',
     position: 'center'
   },
 ]
@@ -63,6 +98,9 @@ const liveMediaItems: MediaItem[] = [
 const showTitle = ref(true)
 
 onMounted(() => {
+  // Scroll to top when component mounts
+  window.scrollTo({ top: 0, behavior: 'instant' })
+  
   // Hide the title after 3 seconds
   setTimeout(() => {
     showTitle.value = false
@@ -206,9 +244,9 @@ onMounted(() => {
   position: absolute;
   bottom: var(--spacing-md);
   right: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.8);
+  background: #2A1F2D;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   opacity: 0;
   transition: opacity var(--transition-normal);
 }

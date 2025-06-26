@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-
 const downloadResume = () => {
   const link = document.createElement('a')
   link.href = '/src/assets/Sydney Brenton Resume.pdf'

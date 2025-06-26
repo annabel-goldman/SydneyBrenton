@@ -11,26 +11,26 @@ interface YouTubeVideo {
 const videos = ref<YouTubeVideo[]>([
   {
     id: '1wj_KOc46AU',
-    title: 'Sydney Brenton - Video 1',
-    description: 'Professional content showcasing Sydney\'s work',
+    title: 'SMASHED',
+    description: 'Starring Sydney Brenton and Diego Goldfrank',
     thumbnail: `https://img.youtube.com/vi/1wj_KOc46AU/maxresdefault.jpg`
   },
   {
     id: '_wlXH0DJRaY',
-    title: 'Sydney Brenton - Video 3',
-    description: 'Professional content showcasing Sydney\'s work',
+    title: 'THUNK A Capella',
+    description: 'Sydney Brenton singing Creep by Radiohead',
     thumbnail: `https://img.youtube.com/vi/_wlXH0DJRaY/maxresdefault.jpg`
   },
   {
     id: 'nx7AG2c19J8',
-    title: 'Sydney Brenton - Video 2',
-    description: 'Professional content showcasing Sydney\'s work',
+    title: 'Will - A Short Film',
+    description: 'Featuring Sydney Brenton',
     thumbnail: `https://img.youtube.com/vi/nx7AG2c19J8/maxresdefault.jpg`
   },
   {
     id: '5RM0uf7T--k',
-    title: 'Sydney Brenton - Video 4',
-    description: 'Professional content showcasing Sydney\'s work',
+    title: 'THUNK A Capella',
+    description: 'Sydney Brenton singing Parking Lot by Genevieve Stokes',
     thumbnail: `https://img.youtube.com/vi/5RM0uf7T--k/maxresdefault.jpg`
   }
 ])
@@ -49,6 +49,9 @@ const closeVideo = () => {
 }
 
 onMounted(() => {
+  // Scroll to top when component mounts
+  window.scrollTo({ top: 0, behavior: 'instant' })
+  
   // Hide the title after 3 seconds and enable interactions
   setTimeout(() => {
     showTitle.value = false
@@ -62,7 +65,7 @@ onMounted(() => {
     <div class="youtube-content">
       <!-- Page Title -->
       <div v-if="showTitle" class="page-title">
-        <h1>YouTube Content</h1>
+        <h1>Video Content</h1>
       </div>
       
       <!-- Video Gallery Section -->
@@ -279,9 +282,9 @@ onMounted(() => {
   position: absolute;
   bottom: var(--spacing-md);
   right: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.8);
+  background: #2A1F2D;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   opacity: 0;
   transition: opacity var(--transition-normal);
   max-width: 300px;

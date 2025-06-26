@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import img2132 from '../assets/filmStills/IMG_2132.jpeg'
+import img2130 from '../assets/filmStills/IMG_2130.jpeg'
 import img2123 from '../assets/filmStills/IMG_2123.jpeg'
 import img2111 from '../assets/filmStills/IMG_2111.jpeg'
 import img2099 from '../assets/filmStills/IMG_2099.jpeg'
 import img2093 from '../assets/filmStills/IMG_2093.jpeg'
 import img2091 from '../assets/filmStills/IMG_2091.jpeg'
+import img2087 from '../assets/filmStills/IMG_2087.png'
 import img2084 from '../assets/filmStills/IMG_2084.jpeg'
 import img2079 from '../assets/filmStills/IMG_2079.jpeg'
 import screenshot from '../assets/filmStills/Screenshot 2023-12-06 at 13.36.03.jpeg'
@@ -16,19 +19,25 @@ interface FilmStill {
 }
 
 const filmStills: FilmStill[] = [
-  { src: img2123, position: 'center', title: 'Film Still 1' },
-  { src: img2111, position: 'top', title: 'Film Still 2' },
-  { src: img2099, position: 'center', title: 'Film Still 3' },
-  { src: img2093, position: 'bottom', title: 'Film Still 4' },
-  { src: img2091, position: 'center', title: 'Film Still 5' },
-  { src: img2084, position: 'top', title: 'Film Still 6' },
-  { src: img2079, position: 'center', title: 'Film Still 7' },
-  { src: screenshot, position: 'center', title: 'Film Still 8' }
+  { src: screenshot, position: 'center', title: 'Will - A Short Film' },
+  { src: img2099, position: 'top', title: 'Me, My Wife, and I' },
+  { src: img2123, position: 'center', title: 'The Usual Couple' },
+  { src: img2087, position: 'top', title: 'SMASHED' },
+  { src: img2093, position: 'center', title: 'Dinner Date' },
+  { src: img2130, position: 'bottom', title: 'The Usual Couple' },
+  { src: img2091, position: 'center', title: 'Dinner Date' },
+  { src: img2111, position: 'top', title: 'The Usual Couple' },
+  { src: img2084, position: 'center', title: 'SMASHED' },
+  { src: img2079, position: 'center', title: 'Juliet' },
+  { src: img2132, position: 'center', title: 'The Usual Couple' }
 ]
 
 const showTitle = ref(true)
 
 onMounted(() => {
+  // Scroll to top when component mounts
+  window.scrollTo({ top: 0, behavior: 'instant' })
+  
   // Hide the title after 3 seconds
   setTimeout(() => {
     showTitle.value = false
@@ -163,9 +172,9 @@ onMounted(() => {
   position: absolute;
   bottom: var(--spacing-md);
   right: var(--spacing-md);
-  background: rgba(0, 0, 0, 0.8);
+  background: #2A1F2D;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
