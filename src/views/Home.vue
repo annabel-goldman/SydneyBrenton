@@ -24,6 +24,18 @@ const prevHeadshot = () => {
     : currentHeadshotIndex.value - 1
 }
 
+const downloadCurrentHeadshot = () => {
+  const currentHeadshot = headshots[currentHeadshotIndex.value]
+  
+  // Create a temporary anchor element to trigger download
+  const link = document.createElement('a')
+  link.href = currentHeadshot
+  link.download = `sydney-brenton-headshot-${currentHeadshotIndex.value + 1}.jpeg`
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 onMounted(() => {
   // Auto-advance carousel every 5 seconds
   setInterval(nextHeadshot, 5000)
@@ -60,6 +72,9 @@ onMounted(() => {
                 </button>
                 <button class="carousel-btn next" @click="nextHeadshot">
                   <span>&gt;</span>
+                </button>
+                <button class="carousel-btn download" @click="downloadCurrentHeadshot">
+                  <span>Download</span>
                 </button>
               </div>
             </div>
@@ -228,6 +243,19 @@ onMounted(() => {
 
 .carousel-btn.next {
   right: 20px;
+}
+
+.carousel-btn.download {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  border-radius: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
 }
 
 .carousel:hover .carousel-btn {
