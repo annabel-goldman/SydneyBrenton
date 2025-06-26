@@ -1,1 +1,11 @@
 src/assets/projects/** filter=lfs diff=lfs merge=lfs -text
+
+# Track all image assets with Git LFS
+src/assets/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.png filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.svg filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.heic filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.mov filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+src/assets/**/*.pdf filter=lfs diff=lfs merge=lfs -text

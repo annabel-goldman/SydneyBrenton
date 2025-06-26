@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import resumeImage from '../assets/Resume.png'
+import resumePdf from '../assets/Sydney Brenton Resume.pdf'
 
 const downloadResume = () => {
   const link = document.createElement('a')
-  link.href = '/src/assets/Sydney Brenton Resume.pdf'
+  link.href = resumePdf
   link.download = 'Sydney Brenton Resume.pdf'
   document.body.appendChild(link)
   link.click()
@@ -18,7 +20,7 @@ const downloadResume = () => {
         <div class="container">
           <div class="resume-preview">
             <div class="resume-image-wrapper">
-              <img src="/src/assets/Resume.png" alt="Sydney Brenton Resume" class="resume-image" />
+              <img :src="resumeImage" alt="Sydney Brenton Resume" class="resume-image" />
               <button class="btn btn-primary resume-download-btn" @click="downloadResume">
                 Download Resume
               </button>
