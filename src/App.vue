@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import About from './views/About.vue'
 import FilmStills from './views/FilmStills.vue'
 import LiveMedia from './views/LiveMedia.vue'
+import YouTube from './views/YouTube.vue'
 
 const currentPage = ref('home')
 
@@ -22,6 +23,7 @@ const navigateTo = (page: string) => {
       <About v-else-if="currentPage === 'about'" />
       <FilmStills v-else-if="currentPage === 'film-stills'" />
       <LiveMedia v-else-if="currentPage === 'live-media'" />
+      <YouTube v-else-if="currentPage === 'youtube'" />
     </main>
   </div>
 </template>
