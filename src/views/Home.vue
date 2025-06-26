@@ -147,8 +147,8 @@ onMounted(() => {
 }
 
 .hero-content p {
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-l);
+  line-height: 2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -311,14 +311,14 @@ onMounted(() => {
 @media (max-width: 1240px) {
   .hero-content {
     max-width: 500px;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 955px) {
   .hero-content {
     max-width: 400px;
-    font-size: 15px;
-
+    font-size: 12px;
   }
 }
 </style> 
