@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import img2132 from '../assets/filmStills/IMG_2132.jpeg'
-import img2130 from '../assets/filmStills/IMG_2130.jpeg'
-import img2123 from '../assets/filmStills/IMG_2123.jpeg'
-import img2111 from '../assets/filmStills/IMG_2111.jpeg'
-import img2099 from '../assets/filmStills/IMG_2099.jpeg'
-import img2093 from '../assets/filmStills/IMG_2093.jpeg'
-import img2091 from '../assets/filmStills/IMG_2091.jpeg'
-import img2087 from '../assets/filmStills/IMG_2087.png'
-import img2084 from '../assets/filmStills/IMG_2084.jpeg'
-import img2079 from '../assets/filmStills/IMG_2079.jpeg'
-import screenshot from '../assets/filmStills/Screenshot 2023-12-06 at 13.36.03.jpeg'
-
+// Will - A Short Film project images
+import willShortFilm001 from '../assets/projects/will-short-film/will-short-film-001.jpeg'
+// Me, My Wife, and I project images
+import meMyWifeAndI001 from '../assets/projects/me-my-wife-and-i/me-my-wife-and-i-001.jpeg'
+// The Usual Couple project images
+import theUsualCouple001 from '../assets/projects/the-usual-couple/the-usual-couple-001.jpeg'
+import theUsualCouple002 from '../assets/projects/the-usual-couple/the-usual-couple-002.jpeg'
+import theUsualCouple003 from '../assets/projects/the-usual-couple/the-usual-couple-003.jpeg'
+import theUsualCouple004 from '../assets/projects/the-usual-couple/the-usual-couple-004.jpeg'
+// SMASHED project images
+import smashed001 from '../assets/projects/smashed/smashed-001.png'
+import smashed002 from '../assets/projects/smashed/smashed-002.jpeg'
+// Dinner Date project images
+import dinnerDate001 from '../assets/projects/dinner-date/dinner-date-001.jpeg'
+import dinnerDate002 from '../assets/projects/dinner-date/dinner-date-002.jpeg'
+// Juliet project images
+import juliet001 from '../assets/projects/juliet/juliet-001.jpeg'
 interface FilmStill {
   src: string
   position?: string
@@ -19,17 +24,17 @@ interface FilmStill {
 }
 
 const filmStills: FilmStill[] = [
-  { src: screenshot, position: 'center', title: 'Will - A Short Film' },
-  { src: img2099, position: 'top', title: 'Me, My Wife, and I' },
-  { src: img2123, position: 'center', title: 'The Usual Couple' },
-  { src: img2087, position: 'top', title: 'SMASHED' },
-  { src: img2093, position: 'center', title: 'Dinner Date' },
-  { src: img2130, position: 'bottom', title: 'The Usual Couple' },
-  { src: img2091, position: 'center', title: 'Dinner Date' },
-  { src: img2111, position: 'top', title: 'The Usual Couple' },
-  { src: img2084, position: 'center', title: 'SMASHED' },
-  { src: img2079, position: 'center', title: 'Juliet' },
-  { src: img2132, position: 'center', title: 'The Usual Couple' }
+  { src: willShortFilm001, position: 'center', title: 'Will - A Short Film' },
+  { src: meMyWifeAndI001, position: 'top', title: 'Me, My Wife, and I' },
+  { src: theUsualCouple001, position: 'center', title: 'The Usual Couple' },
+  { src: smashed001, position: 'top', title: 'SMASHED' },
+  { src: dinnerDate001, position: 'center', title: 'Dinner Date' },
+  { src: theUsualCouple002, position: 'bottom', title: 'The Usual Couple' },
+  { src: dinnerDate002, position: 'center', title: 'Dinner Date' },
+  { src: theUsualCouple003, position: 'top', title: 'The Usual Couple' },
+  { src: smashed002, position: 'center', title: 'SMASHED' },
+  { src: juliet001, position: 'center', title: 'Juliet' },
+  { src: theUsualCouple004, position: 'center', title: 'The Usual Couple' }
 ]
 
 const showTitle = ref(true)

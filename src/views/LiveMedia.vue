@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import img9907 from '../assets/liveMedia/IMG_9907.jpeg'
-import img1414 from '../assets/liveMedia/IMG_1414.jpeg'
-import img1317 from '../assets/liveMedia/IMG_1317.jpeg'
-import img1061 from '../assets/liveMedia/IMG_1061.jpeg'
-import img0965 from '../assets/liveMedia/IMG_0965.jpeg'
-import img1G8A0510 from '../assets/liveMedia/1G8A0510.jpeg'
-import edit081 from '../assets/liveMedia/EDIT053024_Once-081_Original.jpeg'
-import edit092 from '../assets/liveMedia/EDIT053024_Once-092_Original.jpeg'
-import edit039 from '../assets/liveMedia/EDIT053024_Once-039_Original.jpeg'
-import edit044 from '../assets/liveMedia/EDIT053024_Once-044_Original.jpeg'
-import edit062 from '../assets/liveMedia/EDIT053024_Once-062_Original.jpeg'
-import edit070 from '../assets/liveMedia/EDIT053024_Once-070_Original.jpeg'
+// Once project images
+import once062 from '../assets/projects/once/once-062.jpeg'
+import once081 from '../assets/projects/once/once-081.jpeg'
+import once039 from '../assets/projects/once/once-039.jpeg'
+import once044 from '../assets/projects/once/once-044.jpeg'
+import once070 from '../assets/projects/once/once-070.jpeg'
+import once092 from '../assets/projects/once/once-092.jpeg'
+// THUNK A Cappella project images
+import thunkACappella001 from '../assets/projects/thunk-a-cappella/thunk-a-cappella-001.jpeg'
+// Inez, No Exit project images
+import inezNoExit001 from '../assets/projects/inez-no-exit/inez-no-exit-001.jpeg'
+import inezNoExit002 from '../assets/projects/inez-no-exit/inez-no-exit-002.jpeg'
+import inezNoExit003 from '../assets/projects/inez-no-exit/inez-no-exit-003.jpeg'
+// Walter project images
+import walter001 from '../assets/projects/walter/walter-001.jpeg'
+import walter002 from '../assets/projects/walter/walter-002.jpeg'
 
 interface MediaItem {
   src: string
@@ -22,73 +26,73 @@ interface MediaItem {
 
 const liveMediaItems: MediaItem[] = [
   {
-    src: edit062,
+    src: once062,
     type: 'image',
     title: 'Once',
     position: 'center'
   },
   {
-    src: img1G8A0510,
+    src: thunkACappella001,
     type: 'image',
     title: 'THUNK A Cappella',
     position: 'center'
   },
   {
-    src:  edit044,
+    src:  once044,
     type: 'image',
     title: 'Once',
     position: 'top'
   },
   {
-    src: img1414,
+    src: inezNoExit001,
     type: 'image',
     title: 'Inez, No Exit',
     position: 'center'
   },
   {
-    src: edit039,
-    type: 'image',
-    title: 'Live Performance 5',
-    position: 'top'
-  },
-  {
-    src:  img1317,
-    type: 'image',
-    title: 'Live Performance 7',
-    position: 'center'
-  },
-  {
-    src: img0965,
-    type: 'image',
-    title: 'Inez, No Exit',
-    position: 'center'
-  },
-  {
-    src: edit081,
+    src: once039,
     type: 'image',
     title: 'Once',
     position: 'top'
   },
   {
-    src: img1061,
-    type: 'image',
-    title: 'Inez, No Exit',
-    position: 'center'
-  },
-  {
-    src:  edit092,
-    type: 'image',
-    title: 'Once',
-    position: 'center'
-  },
-  {
-    src: img9907,
+    src:  walter001,
     type: 'image',
     title: 'Lead Vocals, Walter',
     position: 'center'
   },
   {
-    src: edit070,
+    src: inezNoExit002,
+    type: 'image',
+    title: 'Inez, No Exit',
+    position: 'center'
+  },
+  {
+    src: once081,
+    type: 'image',
+    title: 'Once',
+    position: 'top'
+  },
+  {
+    src: inezNoExit003,
+    type: 'image',
+    title: 'Inez, No Exit',
+    position: 'center'
+  },
+  {
+    src:  once092,
+    type: 'image',
+    title: 'Once',
+    position: 'center'
+  },
+  {
+    src: walter002,
+    type: 'image',
+    title: 'Lead Vocals, Walter',
+    position: 'center'
+  },
+  {
+    src: once070,
     type: 'image',
     title: 'Once',
     position: 'center'
