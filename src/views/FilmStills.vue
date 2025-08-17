@@ -24,7 +24,7 @@ interface FilmStill {
 }
 
 const filmStills: FilmStill[] = [
-  { src: willShortFilm001, position: 'center', title: 'Will - A Short Film' },
+  { src: willShortFilm001, position: 'center', title: 'Behind Our Scars' },
   { src: meMyWifeAndI001, position: 'top', title: 'Me, My Wife, and I' },
   { src: theUsualCouple001, position: 'center', title: 'The Usual Couple' },
   { src: smashed001, position: 'top', title: 'SMASHED' },
