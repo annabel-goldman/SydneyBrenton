@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-// Will - A Short Film project images
+// Behind Our Scars - A Short Film project images
 import willShortFilm001 from '../assets/projects/will-short-film/will-short-film-001.jpeg'
 // Me, My Wife, and I project images
 import meMyWifeAndI001 from '../assets/projects/me-my-wife-and-i/me-my-wife-and-i-001.jpeg'
