@@ -144,7 +144,7 @@ onMounted(() => {
                 :class="`media-video ${item.position ? `pos-${item.position}` : ''}`"
               />
               <div class="title-overlay">
-                <h3>{{ item.title }}</h3>
+                <h3 v-html="item.title"></h3>
               </div>
             </div>
           </div>
