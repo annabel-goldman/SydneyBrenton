@@ -28,7 +28,7 @@ const liveMediaItems: MediaItem[] = [
   {
     src: once062,
     type: 'image',
-    title: 'Girl, _Once_',
+    title: 'Girl, <i>Once</i>',
     position: 'center'
   },
   {
@@ -40,19 +40,19 @@ const liveMediaItems: MediaItem[] = [
   {
     src:  once044,
     type: 'image',
-    title: 'Girl, _Once_',
+    title: 'Girl, <i>Once</i>',
     position: 'top'
   },
   {
     src: inezNoExit001,
     type: 'image',
-    title: 'Inez, _No Exit_',
+    title: 'Inez, <i>No Exit</i>',
     position: 'center'
   },
   {
     src: once039,
     type: 'image',
-    title: 'Girl, _Once_',
+    title: 'Girl, <i>Once</i>',
     position: 'top'
   },
   {
@@ -70,19 +70,19 @@ const liveMediaItems: MediaItem[] = [
   {
     src: once081,
     type: 'image',
-    title: 'Girl, _Once_',
+    title: 'Girl, <i>Once</i>',
     position: 'top'
   },
   {
     src: inezNoExit003,
     type: 'image',
-    title: 'Inez, _No Exit_',
+    title: 'Inez, <i>No Exit</i>',
     position: 'center'
   },
   {
     src:  once092,
     type: 'image',
-    title: 'Girl, _Once_',
+    title: 'Girl, <i>Once</i>',
     position: 'center'
   },
   {
@@ -94,7 +94,7 @@ const liveMediaItems: MediaItem[] = [
   {
     src: once070,
     type: 'image',
-    title: 'Girl, _Once_',
+    title: 'Girl, <i>Once</i>',
     position: 'center'
   },
 ]
