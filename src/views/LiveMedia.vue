@@ -64,7 +64,7 @@ const liveMediaItems: MediaItem[] = [
   {
     src: inezNoExit002,
     type: 'image',
-    title: 'Inez, _No Exit_',
+    title: 'Inez, <i>No Exit</i>',
     position: 'center'
   },
   {
