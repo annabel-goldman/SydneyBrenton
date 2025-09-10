@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { FILM_STILLS_PAGE, SITE_INFO } from '../constants/text'
 // Behind Our Scars - A Short Film project images
 import willShortFilm001 from '../assets/projects/will-short-film/will-short-film-001.jpeg'
 // Me, My Wife, and I project images
@@ -55,7 +56,7 @@ onMounted(() => {
     <div class="film-stills">
       <!-- Page Title -->
       <div v-if="showTitle" class="page-title">
-        <h1>Film Stills</h1>
+        <h1>{{ FILM_STILLS_PAGE.TITLE }}</h1>
       </div>
       
       <!-- Gallery Section -->
@@ -69,7 +70,7 @@ onMounted(() => {
             <div class="media-container">
               <img 
                 :src="image.src" 
-                :alt="`Film Still ${index + 1}`"
+                :alt="`${FILM_STILLS_PAGE.ALT_TEXT_TEMPLATE} ${index + 1}`"
                 :class="`media-image ${image.position ? `pos-${image.position}` : ''}`"
               />
               <div class="title-overlay">
@@ -83,7 +84,7 @@ onMounted(() => {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2024 Sydney Brenton</p>
+          <p>{{ SITE_INFO.COPYRIGHT }}</p>
         </div>
       </div>
     </footer>

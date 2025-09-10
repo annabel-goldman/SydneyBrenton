@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { NAVIGATION } from '../constants/text'
 
 interface Props {
   currentPage: string
@@ -22,27 +23,19 @@ const navigateTo = (page: string) => {
   emit('navigate', page)
   isMenuOpen.value = false
 }
-
-const menuItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'Resume' },
-  { id: 'film-stills', label: 'Film Stills' },
-  { id: 'live-media', label: 'Live Media' },
-  { id: 'youtube', label: 'Video Content' }
-]
 </script>
 
 <template>
   <nav class="navigation">
     <div class="nav-container">
       <div class="nav-brand">
-        <h3>Sydney Brenton</h3>
+        <h3>{{ NAVIGATION.BRAND }}</h3>
       </div>
       
       <!-- Desktop Navigation -->
       <div class="nav-menu desktop-menu">
         <a 
-          v-for="item in menuItems" 
+          v-for="item in NAVIGATION.MENU_ITEMS" 
           :key="item.id"
           :class="['nav-link', { active: currentPage === item.id }]"
           @click="navigateTo(item.id)"
@@ -63,7 +56,7 @@ const menuItems = [
     <div class="mobile-menu" :class="{ active: isMenuOpen }">
       <div class="mobile-menu-content">
         <a 
-          v-for="item in menuItems" 
+          v-for="item in NAVIGATION.MENU_ITEMS" 
           :key="item.id"
           :class="['mobile-nav-link', { active: currentPage === item.id }]"
           @click="navigateTo(item.id)"

@@ -6,16 +6,9 @@ import About from './views/About.vue'
 import FilmStills from './views/FilmStills.vue'
 import LiveMedia from './views/LiveMedia.vue'
 import YouTube from './views/YouTube.vue'
+import { PAGE_TITLE_MAP, DEFAULT_TITLE } from './constants/text'
 
 const currentPage = ref('home')
-
-const pageTitles = {
-  'home': 'Sydney Brenton - Actor, Singer, Musician',
-  'about': 'Resume - Sydney Brenton',
-  'film-stills': 'Film Stills - Sydney Brenton',
-  'live-media': 'Live Media - Sydney Brenton',
-  'youtube': 'Video Content - Sydney Brenton'
-}
 
 const navigateTo = (page: string) => {
   currentPage.value = page
@@ -23,7 +16,7 @@ const navigateTo = (page: string) => {
 
 // Update document title when page changes
 watch(currentPage, (newPage) => {
-  document.title = pageTitles[newPage as keyof typeof pageTitles] || 'Sydney Brenton'
+  document.title = PAGE_TITLE_MAP[newPage as keyof typeof PAGE_TITLE_MAP] || DEFAULT_TITLE
 })
 </script>
 

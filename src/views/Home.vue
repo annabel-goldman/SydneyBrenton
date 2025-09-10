@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { HOME_PAGE, SITE_INFO, UI_TEXT, ALT_TEXTS } from '../constants/text'
 import headshot1 from '../assets/headshots/headshot1.jpeg'
 import headshot2 from '../assets/headshots/headshot2.jpeg'
 import headshot3 from '../assets/headshots/headshot3.jpeg'
@@ -30,7 +31,7 @@ const downloadCurrentHeadshot = () => {
   // Create a temporary anchor element to trigger download
   const link = document.createElement('a')
   link.href = currentHeadshot
-  link.download = `sydney-brenton-headshot-${currentHeadshotIndex.value + 1}.jpeg`
+  link.download = `${SITE_INFO.NAME.toLowerCase().replace(' ', '-')}-headshot-${currentHeadshotIndex.value + 1}.jpeg`
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
@@ -50,10 +51,10 @@ onMounted(() => {
         <!-- Removed: <img :src="heroImage" alt="Sydney Brenton Hero" /> -->
         <div class="hero-overlay">
           <div class="hero-content">
-            <h1>Sydney Brenton</h1>
-            <h2>Actor, Singer, Musician</h2>
-            <p>Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister and dog and to get a New Jersey bagel. Sydney recently graduated Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate. </p>
-            <p>She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music for them, and performed in a band as well. </p>
+            <h1>{{ HOME_PAGE.HERO.NAME }}</h1>
+            <h2>{{ HOME_PAGE.HERO.TAGLINE }}</h2>
+            <p>{{ HOME_PAGE.HERO.BIO_PARAGRAPH_1 }}</p>
+            <p>{{ HOME_PAGE.HERO.BIO_PARAGRAPH_2 }}</p>
           </div>
           <div class="hero-carousel">
             <div class="carousel-container">
@@ -64,7 +65,7 @@ onMounted(() => {
                     :key="index"
                     class="carousel-slide"
                   >
-                    <img :src="headshot" :alt="`Sydney Brenton Headshot ${index + 1}`" />
+                    <img :src="headshot" :alt="`${SITE_INFO.NAME} Headshot ${index + 1}`" />
                   </div>
                 </div>
                 <button class="carousel-btn prev" @click="prevHeadshot">
@@ -74,7 +75,7 @@ onMounted(() => {
                   <span>&gt;</span>
                 </button>
                 <button class="carousel-btn download" @click="downloadCurrentHeadshot">
-                  <span>Download</span>
+                  <span>{{ UI_TEXT.DOWNLOAD }}</span>
                 </button>
               </div>
             </div>
@@ -87,7 +88,7 @@ onMounted(() => {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2024 Sydney Brenton</p>
+          <p>{{ SITE_INFO.COPYRIGHT }}</p>
         </div>
       </div>
     </footer>

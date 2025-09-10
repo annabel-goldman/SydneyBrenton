@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { LIVE_MEDIA_PAGE, SITE_INFO } from '../constants/text'
 // Once project images
 import once062 from '../assets/projects/once/once-062.jpeg'
 import once081 from '../assets/projects/once/once-081.jpeg'
@@ -117,7 +118,7 @@ onMounted(() => {
     <div class="live-media">
       <!-- Page Title -->
       <div v-if="showTitle" class="page-title">
-        <h1>Live Media</h1>
+        <h1>{{ LIVE_MEDIA_PAGE.TITLE }}</h1>
       </div>
       
       <!-- Gallery Section -->
@@ -154,7 +155,7 @@ onMounted(() => {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2024 Sydney Brenton</p>
+          <p>{{ SITE_INFO.COPYRIGHT }}</p>
         </div>
       </div>
     </footer>

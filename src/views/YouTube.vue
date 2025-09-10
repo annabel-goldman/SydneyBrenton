@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { YOUTUBE_PAGE, SITE_INFO, getYouTubeThumbnail, getYouTubeEmbedUrl } from '../constants/text'
 
 interface YouTubeVideo {
   id: string
@@ -8,32 +9,12 @@ interface YouTubeVideo {
   thumbnail: string
 }
 
-const videos = ref<YouTubeVideo[]>([
-  {
-    id: '1wj_KOc46AU',
-    title: 'SMASHED',
-    description: 'Starring Sydney Brenton and Diego Goldfrank',
-    thumbnail: `https://img.youtube.com/vi/1wj_KOc46AU/maxresdefault.jpg`
-  },
-  {
-    id: '_wlXH0DJRaY',
-    title: 'THUNK A Capella',
-    description: 'Sydney Brenton singing Creep by Radiohead',
-    thumbnail: `https://img.youtube.com/vi/_wlXH0DJRaY/maxresdefault.jpg`
-  },
-  {
-    id: 'nx7AG2c19J8',
-    title: 'Will - A Short Film',
-    description: 'Featuring Sydney Brenton',
-    thumbnail: `https://img.youtube.com/vi/nx7AG2c19J8/maxresdefault.jpg`
-  },
-  {
-    id: '5RM0uf7T--k',
-    title: 'THUNK A Capella',
-    description: 'Sydney Brenton singing Parking Lot by Genevieve Stokes',
-    thumbnail: `https://img.youtube.com/vi/5RM0uf7T--k/maxresdefault.jpg`
-  }
-])
+const videos = ref<YouTubeVideo[]>(
+  YOUTUBE_PAGE.VIDEOS.map(video => ({
+    ...video,
+    thumbnail: getYouTubeThumbnail(video.id)
+  }))
+)
 
 const selectedVideo = ref<string | null>(null)
 const showTitle = ref(true)
@@ -65,7 +46,7 @@ onMounted(() => {
     <div class="youtube-content">
       <!-- Page Title -->
       <div v-if="showTitle" class="page-title">
-        <h1>Video Content</h1>
+        <h1>{{ YOUTUBE_PAGE.TITLE }}</h1>
       </div>
       
       <!-- Video Gallery Section -->
@@ -111,7 +92,7 @@ onMounted(() => {
         </button>
         <div class="video-container">
           <iframe
-            :src="`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`"
+            :src="getYouTubeEmbedUrl(selectedVideo, true)"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -123,7 +104,7 @@ onMounted(() => {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2024 Sydney Brenton</p>
+          <p>{{ SITE_INFO.COPYRIGHT }}</p>
         </div>
       </div>
     </footer>

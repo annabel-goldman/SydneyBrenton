@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { ABOUT_PAGE, SITE_INFO } from '../constants/text'
 import resumeImage from '../assets/Resume.png'
 import resumePdf from '../assets/Sydney Brenton Resume.pdf'
 
 const downloadResume = () => {
   const link = document.createElement('a')
   link.href = resumePdf
-  link.download = 'Sydney Brenton Resume.pdf'
+  link.download = ABOUT_PAGE.RESUME.DOWNLOAD_FILENAME
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
@@ -20,9 +21,9 @@ const downloadResume = () => {
         <div class="container">
           <div class="resume-preview">
             <div class="resume-image-wrapper">
-              <img :src="resumeImage" alt="Sydney Brenton Resume" class="resume-image" />
+              <img :src="resumeImage" :alt="ABOUT_PAGE.RESUME.ALT_TEXT" class="resume-image" />
               <button class="btn btn-primary resume-download-btn" @click="downloadResume">
-                Download Resume
+                {{ ABOUT_PAGE.RESUME.DOWNLOAD_BUTTON }}
               </button>
             </div>
           </div>
@@ -32,7 +33,7 @@ const downloadResume = () => {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2024 Sydney Brenton</p>
+          <p>{{ SITE_INFO.COPYRIGHT }}</p>
         </div>
       </div>
     </footer>
