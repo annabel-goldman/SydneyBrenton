@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { CONTACT_PAGE, SITE_INFO } from '../constants/text'
 
 onMounted(() => {
@@ -14,8 +14,8 @@ onMounted(() => {
       <!-- Contact Section -->
       <section class="contact-section section">
         <div class="container">
-          <div class="contact-content">
-            <div class="contact-card">
+          <div class="contact-wrapper">
+            <div class="contact-content">
               <h1 class="contact-title">{{ CONTACT_PAGE.TITLE }}</h1>
               <p class="contact-intro">{{ CONTACT_PAGE.INTRO }}</p>
               
@@ -24,7 +24,7 @@ onMounted(() => {
                   <span class="contact-label">{{ CONTACT_PAGE.EMAIL.LABEL }}</span>
                   <a 
                     :href="`mailto:${CONTACT_PAGE.EMAIL.ADDRESS}`" 
-                    class="contact-link email-link"
+                    class="contact-link"
                   >
                     {{ CONTACT_PAGE.EMAIL.ADDRESS }}
                   </a>
@@ -36,9 +36,9 @@ onMounted(() => {
                     :href="CONTACT_PAGE.INSTAGRAM.URL" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    class="contact-link instagram-link"
+                    class="contact-link"
                   >
-                    {{ CONTACT_PAGE.INSTAGRAM.HANDLE }}
+                    @{{ CONTACT_PAGE.INSTAGRAM.HANDLE }}
                   </a>
                 </div>
               </div>
@@ -74,35 +74,6 @@ onMounted(() => {
   margin-top: 0 !important;
 }
 
-/* Contact Card */
-.contact-card {
-  background: rgba(125, 131, 138, 0.9);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-2xl);
-  box-shadow: 0 25px 50px -12px rgba(42, 31, 45, 0.5), 0 0 0 1px rgba(42, 31, 45, 0.1);
-  border: 1px solid rgba(125, 131, 138, 0.4);
-}
-
-/* Contact Title */
-.contact-title {
-  color: var(--color-text-white);
-  font-size: var(--font-size-4xl);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  margin: 0 0 var(--spacing-md) 0;
-  text-align: center;
-}
-
-/* Contact Intro */
-.contact-intro {
-  color: var(--color-text-white);
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-lg);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  opacity: 0.9;
-}
-
 /* Contact Section */
 .contact-section {
   background: var(--color-background-primary);
@@ -115,54 +86,83 @@ onMounted(() => {
   min-height: 100vh;
 }
 
-.contact-content {
-  text-align: center;
-  max-width: 400px;
+.contact-wrapper {
+  background: rgba(42, 31, 45, 0.4);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-4xl);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 600px;
   margin: 0 auto;
+}
+
+.contact-content {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  color: var(--color-text-white);
+  font-size: var(--font-size-4xl);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0 0 var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.contact-intro {
+  color: var(--color-text-white);
+  font-size: var(--font-size-xl);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
 }
 
 .contact-methods {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xl);
   align-items: center;
 }
 
 .contact-method {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-xs);
+  background: rgba(42, 31, 45, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  min-width: 300px;
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-method:hover {
+  transform: translateY(-2px);
+  background: rgba(42, 31, 45, 0.9);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-label {
   color: var(--color-text-white);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
+  display: block;
+  margin-bottom: var(--spacing-sm);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .contact-link {
   color: var(--color-text-white);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-base);
   text-decoration: none;
-  transition: all var(--transition-normal);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-sm);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: color var(--transition-normal);
+  display: block;
+  word-break: break-word;
 }
 
 .contact-link:hover {
-  color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.email-link:hover {
-  text-decoration: underline;
-}
-
-.instagram-link:hover {
+  color: #B19CD9;
   text-decoration: underline;
 }
 
@@ -187,8 +187,8 @@ onMounted(() => {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .contact-card {
-    padding: var(--spacing-xl);
+  .contact-wrapper {
+    padding: var(--spacing-2xl);
     margin: 0 1rem;
   }
   
@@ -197,16 +197,12 @@ onMounted(() => {
   }
   
   .contact-intro {
-    font-size: var(--font-size-base);
-  }
-  
-  .contact-label,
-  .contact-link {
     font-size: var(--font-size-lg);
   }
   
-  .contact-methods {
-    gap: var(--spacing-sm);
+  .contact-method {
+    min-width: 250px;
+    padding: var(--spacing-md);
   }
   
   .container {
@@ -215,8 +211,8 @@ onMounted(() => {
 }
 
 @media (max-width: 480px) {
-  .contact-card {
-    padding: var(--spacing-lg);
+  .contact-wrapper {
+    padding: var(--spacing-xl);
     margin: 0 0.5rem;
   }
   
@@ -225,12 +221,19 @@ onMounted(() => {
   }
   
   .contact-intro {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
   }
   
-  .contact-label,
-  .contact-link {
+  .contact-method {
+    min-width: 200px;
+  }
+  
+  .contact-label {
     font-size: var(--font-size-base);
+  }
+  
+  .contact-link {
+    font-size: var(--font-size-sm);
   }
 }
 </style>
