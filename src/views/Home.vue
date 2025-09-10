@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { HOME_PAGE, SITE_INFO, UI_TEXT, ALT_TEXTS } from '../constants/text'
+import { HOME_PAGE, SITE_INFO, UI_TEXT } from '../constants/text'
 import headshot1 from '../assets/headshots/headshot1.jpeg'
 import headshot2 from '../assets/headshots/headshot2.jpeg'
 import headshot3 from '../assets/headshots/headshot3.jpeg'
