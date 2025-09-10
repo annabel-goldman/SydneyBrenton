@@ -6,6 +6,7 @@ import About from './views/About.vue'
 import FilmStills from './views/FilmStills.vue'
 import LiveMedia from './views/LiveMedia.vue'
 import YouTube from './views/YouTube.vue'
+import Contact from './views/Contact.vue'
 import { PAGE_TITLE_MAP, DEFAULT_TITLE } from './constants/text'
 
 const currentPage = ref('home')
@@ -30,6 +31,7 @@ watch(currentPage, (newPage) => {
       <FilmStills v-else-if="currentPage === 'film-stills'" />
       <LiveMedia v-else-if="currentPage === 'live-media'" />
       <YouTube v-else-if="currentPage === 'youtube'" />
+      <Contact v-else-if="currentPage === 'contact'" />
     </main>
   </div>
 </template>

@@ -19,6 +19,7 @@ export const PAGE_TITLES = {
   FILM_STILLS: 'Film Stills - Sydney Brenton',
   LIVE_MEDIA: 'Live Media - Sydney Brenton',
   YOUTUBE: 'Video Content - Sydney Brenton',
+  CONTACT: 'Contact Me - Sydney Brenton',
 } as const
 
 export const NAVIGATION = {
@@ -29,7 +30,8 @@ export const NAVIGATION = {
     { id: 'about', label: 'Resume' },
     { id: 'film-stills', label: 'Film Stills' },
     { id: 'live-media', label: 'Live Media' },
-    { id: 'youtube', label: 'Video Content' }
+    { id: 'youtube', label: 'Video Content' },
+    { id: 'contact', label: 'Contact Me' }
   ],
 } as const
 
@@ -104,6 +106,21 @@ export const YOUTUBE_PAGE = {
   ],
 } as const
 
+export const CONTACT_PAGE = {
+  // Contact page content
+  TITLE: 'Contact Me',
+  INTRO: "You can reach me at:",
+  EMAIL: {
+    LABEL: 'Email:',
+    ADDRESS: 'sydneyybrenton@gmail.com',
+  },
+  INSTAGRAM: {
+    LABEL: 'Instagram:',
+    HANDLE: 'sydneyybrenton',
+    URL: 'https://instagram.com/sydneyybrenton',
+  },
+} as const
+
 export const UI_TEXT = {
   // Generic UI text and labels
   LOADING: 'Loading...',
@@ -141,6 +158,7 @@ export const PAGE_TITLE_MAP = {
   'film-stills': PAGE_TITLES.FILM_STILLS,
   'live-media': PAGE_TITLES.LIVE_MEDIA,
   'youtube': PAGE_TITLES.YOUTUBE,
+  'contact': PAGE_TITLES.CONTACT,
 } as const
 
 // Export default title fallback
