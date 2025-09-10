@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { CONTACT_PAGE, SITE_INFO } from '../constants/text'
 
 onMounted(() => {
