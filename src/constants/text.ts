@@ -40,8 +40,8 @@ export const HOME_PAGE = {
   HERO: {
     NAME: 'Sydney Brenton',
     TAGLINE: 'Actor, Singer, Musician',
-    BIO_PARAGRAPH_1: 'Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister and  (mostly her dog) and to get a New Jersey bagel. Sydney recently graduated Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate.',
-    BIO_PARAGRAPH_2: 'She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music for them, and sung with a band as well.',
+    BIO_PARAGRAPH_1: 'Sydney Brenton is an actor, singer, and musician currently based in Los Angeles. As a New Jersey native, she is often home to visit her parents, sister, and dog, and to get a New Jersey bagel. Sydney recently graduated Northwestern University with a Bachelor of Arts in Theatre (concentration in Acting) and Mathematics with an Integrated Marketing Communications certificate.',
+    BIO_PARAGRAPH_2: 'She has also studied at Prague Film School in Film Acting and with the Prague Shakespeare Company, additionally performing with them in their summer season. In her spare time, Sydney loves to read, do yoga and pilates, and play piano. At Northwestern, she was the Music Director of THUNK A Cappella, arranged music and soloed for them, and performed with a band as well.',
   },
 } as const
 
